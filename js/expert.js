@@ -962,3 +962,55 @@ export const hexLattice = num => {
 
     return sum;
 }
+
+export const tapCode = str => {
+
+    const grid = [
+        ["A", "B", ["C", "K"], "D", "E"],
+        ["F", "G", "H", "I", "J"],
+        ["L", "M", "N", "O", "P"],
+        ["Q", "R", "S", "T", "U"],
+        ["V", "W", "X", "Y", "Z"]
+    ]
+
+    let finalKnocks = "";
+
+    const getNumbers = letter => {
+        const responseNumber = [];
+        for (let i = 0; i < grid.length; i++) {
+            for (let j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] instanceof Array) {
+                    for (let z = 0; z < grid[i][j].length; z++) {
+                        if (grid[i][j][z] === letter.toUpperCase()) {
+                            responseNumber.push(i + 1);
+                            responseNumber.push(j + 1);
+                        }
+                    }
+                }
+                if (grid[i][j] === letter.toUpperCase()) {
+                    responseNumber.push(i + 1);
+                    responseNumber.push(j + 1);
+                }
+            }
+        }
+        return responseNumber;
+    }
+
+    const getKnock = arr => {
+        const knockArray = arr.map(el => {
+            let knock = "";
+            for (let i = 0; i < el; i++) {
+                knock += "."
+            }
+            return knock;
+        })
+        return knockArray.join(" ");
+    }
+
+    str.split("").forEach(el => {
+        const numArray = getNumbers(el);
+        const letterArray = getKnock(numArray);
+        finalKnocks += letterArray + " "
+    })
+    return finalKnocks;
+}

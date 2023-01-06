@@ -1,4 +1,4 @@
-import { bitwiseIndex, clockwiseCipher, countChocolates, getObject, knightsJump, join, letter_combinations, maxDistance, movingParticles, nicoCipher, numToEng, polybius, condiCipher, expressFactors, fiscalCode, numGrid, freqCount, hexLattice } from "./expert.js"
+import { bitwiseIndex, clockwiseCipher, countChocolates, getObject, knightsJump, join, letter_combinations, maxDistance, movingParticles, nicoCipher, numToEng, polybius, condiCipher, expressFactors, fiscalCode, numGrid, freqCount, hexLattice, tapCode } from "./expert.js"
 
 console.log(letter_combinations("532"))
 console.log(numToEng(15))
@@ -39,3 +39,4 @@ console.log(numGrid([
 ]))
 console.log(freqCount([1, [2], 1, [[2]], 1, [[[2]]], 1, [[[[2]]]]], 2))
 console.log(hexLattice(37))
+console.log(tapCode("break"))
