@@ -18,6 +18,7 @@ import {
   freqCount,
   hexLattice,
   tapCode,
+  bishop,
 } from "./expert.js";
 
 console.log(letter_combinations("532"));
@@ -66,3 +67,5 @@ console.log(
 console.log(freqCount([1, [2], 1, [[2]], 1, [[[2]]], 1, [[[[2]]]]], 2));
 console.log(hexLattice(37));
 console.log(tapCode(".... ... ... ..... . ..... ... ... .... ...."));
+console.clear();
+console.log(bishop("a1", "b4", 2));

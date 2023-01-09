@@ -1102,3 +1102,35 @@ export const tapCode = (str) => {
     return world.toLocaleLowerCase();
   }
 };
+
+export const bishop = (start, end, amount) => {
+  /*Validations */
+  if (start === end) return true;
+  if (start.length !== 2)
+    return "You must enter a start value that its length is equals 2";
+  if (end.length !== 2)
+    return "You must enter a end value that its length is equals 2";
+  if (amount < 0)
+    return "You must enter a amount value that is equals or greater than 0";
+
+  const regExp = /[a-h]{1}[1-8]{1}/;
+  if (!regExp.test(start))
+    return "You must enter a start value that contains only one letter (a-h) and one number from 1 to 8. Ex: 'a1'.";
+  if (!regExp.test(end))
+    return "You must enter a end value that contains only one letter (a-h) and one number from 1 to 8. Ex: 'b1'.";
+
+  /* Building a chess board */
+  const board = Array(8).fill("");
+  const letter = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  let count = 8;
+
+  const filledBoard = board.map((el) => {
+    const mapEl = [];
+    for (let i = 0; i < letter.length; i++) {
+      mapEl.push(`${letter[i]}${count}`);
+    }
+    count--;
+    return mapEl;
+  });
+  return filledBoard;
+};
